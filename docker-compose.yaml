@@ -1,0 +1,29 @@
+version: '3'
+services:
+  backend:
+    image: backend
+    restart: always
+    build:
+      context: ./backend  # Use the Dockerfile from the backend
+    ports:
+      - 8080:8000
+    volumes:
+      - ./backend/src:/home/app
+    environment:
+      FLASK_DEBUG: "true"
+    env_file: .env
+    command: ["python", "app.py"]
+
+  db:
+    image: postgres:15.2-alpine
+    restart: always
+    environment:
+      - POSTGRES_SERVER=db
+      - POSTGRES_PORT=9876
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - '5432:5432'
+#    volumes:
+#      - db:/var/lib/postgresql/data
+#      - ./db/init.sql:/docker-entrypoint-initdb.d/create_tables.sql
