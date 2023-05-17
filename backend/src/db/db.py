@@ -6,7 +6,7 @@ class DB:
     def __init__(self,
                  host: str = os.getenv("POSTGRES_HOST", "localhost"),
                  port: int = os.getenv("POSTGRES_PORT", 5432),
-                 database_name: str = os.getenv("POSTGRES_DATABASE_NAME", "database"),
+                 database_name: str = os.getenv("POSTGRES_DATABASE_NAME", "mydb"),
                  user: str = os.getenv("POSTGRES_USER", "postgres"),
                  password: str = os.getenv("POSTGRES_PASSWORD", "postgres")
                  ):
@@ -48,3 +48,15 @@ class DB:
             print("Query executed successfully")
         except Exception as e:
             print("Error executing query:", e)
+
+# import pandas as pd
+# data = {
+#     "lon": [52.4, 52.4],
+#     "lat": [91.5, 93.4]
+# }
+# df = pd.DataFrame(data)
+#
+# db = DB()
+#
+#
+# db.disconnect()

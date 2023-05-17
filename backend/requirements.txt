@@ -1,4 +1,6 @@
 Flask~=2.3.2
+Flask-SQLAlchemy~=3.0.3
+Flask-Migrate~=4.0.4
 numpy~=1.24.3
 pandas~=2.0.1
 postgres~=4.0
